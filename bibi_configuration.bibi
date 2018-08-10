@@ -1,0 +1,7 @@
+<bibi 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://schemas.humanbrainproject.eu/SP10/2014/BIBI" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/BIBI ../bibi_configuration.xsd">
+  <bodyModel assetPath="monoped" customAsset="false">model.sdf</bodyModel>
+  <transferFunction xsi:type="PythonTransferFunction" src="csv_joint_state_monitor.py" />
+  <transferFunction xsi:type="PythonTransferFunction" src="csv_robot_position.py" />
+</bibi>

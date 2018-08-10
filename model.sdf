@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.6'>
+  <model name='monoped'>
+    <pose>0 0 1.0 0 -0 0</pose>
+    <link name='base'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.4672</mass>
+        <inertia>
+          <ixx>0.00506133</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00506133</iyy>
+          <iyz>0</iyz>
+          <izz>0.00293333</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.2 0.3</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>1000</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.2 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <link name='hipassembly'>
+      <pose>0 0 -0.15 -1.10715 1.57079 2.03444</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1168</mass>
+        <inertia>
+          <ixx>0.00140907</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0015296</iyy>
+          <iyz>0</iyz>
+          <izz>0.000218659</izz>
+        </inertia>
+      </inertial>
+      <collision name='hipassembly_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://monoped/meshes/leg/hipassembly.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>1000</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='hipassembly_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://monoped/meshes/leg/hipassembly.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='haa_joint' type='revolute'>
+      <child>hipassembly</child>
+      <parent>base</parent>
+      <axis>
+        <xyz>-1 0 -0</xyz>
+        <limit>
+          <lower>-1.6</lower>
+          <upper>1.6</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='upperleg'>
+      <pose>0 -0 -0.23 0.463643 1.57079 2.03444</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1168</mass>
+        <inertia>
+          <ixx>0.000119503</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00158479</iyy>
+          <iyz>0</iyz>
+          <izz>0.00158586</izz>
+        </inertia>
+      </inertial>
+      <collision name='upperleg_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://monoped/meshes/leg/upperleg.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>1000</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='upperleg_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://monoped/meshes/leg/upperleg.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='hfe_joint' type='revolute'>
+      <child>upperleg</child>
+      <parent>hipassembly</parent>
+      <axis>
+        <xyz>0 1 -0</xyz>
+        <limit>
+          <lower>-1.6</lower>
+          <upper>1.6</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='lowerleg'>
+      <pose>0 -0 -0.58 0.463643 1.57079 2.03444</pose>
+      <inertial>
+        <pose>0.089286 0 0 0 -0 0</pose>
+        <mass>0.0392</mass>
+        <inertia>
+          <ixx>1.86954e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00128467</iyy>
+          <iyz>0</iyz>
+          <izz>0.00127755</izz>
+        </inertia>
+      </inertial>
+      <collision name='lowerleg_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://monoped/meshes/leg/lowerleg.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>1000</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='lowerleg_fixed_joint_lump__contactsensor_link_collision_1'>
+        <pose>0.35 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>1000</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1e+06</mu>
+              <mu2>1e+06</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='lowerleg_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://monoped/meshes/leg/lowerleg.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>__default__</uri>
+            <name>Gazebo/Black</name>
+          </script>
+        </material>
+      </visual>
+      <visual name='lowerleg_fixed_joint_lump__contactsensor_link_visual_1'>
+        <pose>0.35 0 0 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+      <sensor name='contactsensor_sensor' type='contact'>
+        <always_on>1</always_on>
+        <contact>
+          <collision>contactsensor_link_collision_1</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='bumper0_plugin' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>lowerleg_contactsensor_state</bumperTopicName>
+          <frameName>contactsensor_link</frameName>
+        </plugin>
+        <pose>0.35 0 0 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='kfe_joint' type='revolute'>
+      <child>lowerleg</child>
+      <parent>upperleg</parent>
+      <axis>
+        <xyz>0 1 -0</xyz>
+        <limit>
+          <lower>-1.6</lower>
+          <upper>0</upper>
+          <effort>10</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <!-- <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/monoped</robotNamespace>
+    </plugin> -->
+    <plugin filename="libgeneric_controller_plugin.so" name="monoped_controller">
+         <controller joint_name="haa_joint">
+            <!--<type>position</type>-->
+	    <type>velocity</type>
+	    <!--<pid>50.0 0.1 0.0</pid>-->
+	    <!--<pid>10.0 0.0 0.5</pid>-->
+            <pid>100.0 0.0 0.7</pid>
+         </controller>
+         <controller joint_name="hfe_joint">
+            <!--<type>position</type>-->
+	    <type>velocity</type>
+	    <!--<pid>50.0 0.1 0.0</pid>-->
+	    <!--<pid>10.0 0.0 0.5</pid>-->
+            <pid>100.0 0.0 0.7</pid>
+         </controller>
+         <controller joint_name="kfe_joint">
+            <!--<type>position</type>-->
+	    <type>velocity</type>
+	    <!--<pid>50.0 0.1 0.0</pid>-->
+	    <!--<pid>10.0 0.0 0.5</pid>-->
+            <pid>100.0 0.0 0.7</pid>
+         </controller>
+    </plugin>
+    <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+      <alwaysOn>true</alwaysOn>
+      <bodyName>base</bodyName>
+      <topicName>odom</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
+    <static>0</static>
+    <plugin name='gazebo_ros_imu_controller' filename='libgazebo_ros_imu.so'>
+      <robotNamespace>/monoped</robotNamespace>
+      <topicName>imu/data</topicName>
+      <serviceName>imu/service</serviceName>
+      <bodyName>base</bodyName>
+      <gaussianNoise>0</gaussianNoise>
+      <rpyOffsets>0 0 0</rpyOffsets>
+      <alwaysOn>true</alwaysOn>
+      <gaussianNoise>0</gaussianNoise>
+    </plugin>
+  </model>
+</sdf>
+
