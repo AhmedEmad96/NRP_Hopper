@@ -120,8 +120,10 @@
         <limit>
           <lower>-1.6</lower>
           <upper>1.6</upper>
-          <effort>10</effort>
-          <velocity>5</velocity>
+	  <effort>2000</effort>
+          <velocity>20</velocity>
+          <!-- <effort>10</effort>
+          <velocity>5</velocity> -->
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -178,7 +180,7 @@
         <material>
           <script>
             <uri>__default__</uri>
-            <name>Gazebo/Black</name>
+            <name>__default__</name>
           </script>
         </material>
       </visual>
@@ -194,8 +196,10 @@
         <limit>
           <lower>-1.6</lower>
           <upper>1.6</upper>
-          <effort>10</effort>
-          <velocity>5</velocity>
+          <effort>2000</effort>
+          <velocity>20</velocity>
+          <!-- <effort>10</effort>
+          <velocity>5</velocity> -->
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -299,12 +303,12 @@
       <sensor name='contactsensor_sensor' type='contact'>
         <always_on>1</always_on>
         <contact>
-          <collision>contactsensor_link_collision_1</collision>
+          <collision>lowerleg_fixed_joint_lump__contactsensor_link_collision_1</collision>
           <topic>__default_topic__</topic>
         </contact>
         <plugin name='bumper0_plugin' filename='libgazebo_ros_bumper.so'>
           <bumperTopicName>lowerleg_contactsensor_state</bumperTopicName>
-          <frameName>contactsensor_link</frameName>
+          <frameName>lowerleg_fixed_joint_lump__contactsensor_link</frameName>
         </plugin>
         <pose>0.35 0 0 0 -0 0</pose>
       </sensor>
@@ -317,8 +321,10 @@
         <limit>
           <lower>-1.6</lower>
           <upper>0</upper>
-          <effort>10</effort>
-          <velocity>5</velocity>
+          <effort>2000</effort>
+          <velocity>20</velocity>
+          <!-- <effort>10</effort>
+          <velocity>5</velocity> -->
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -332,22 +338,22 @@
     </plugin> -->
     <plugin filename="libgeneric_controller_plugin.so" name="monoped_controller">
          <controller joint_name="haa_joint">
-            <!--<type>position</type>-->
-	    <type>velocity</type>
+            <type>position</type>
+	    <!--<type>velocity</type>-->
 	    <!--<pid>50.0 0.1 0.0</pid>-->
 	    <!--<pid>10.0 0.0 0.5</pid>-->
             <pid>100.0 0.0 0.7</pid>
          </controller>
          <controller joint_name="hfe_joint">
-            <!--<type>position</type>-->
-	    <type>velocity</type>
+            <type>position</type>
+	    <!--<type>velocity</type>-->
 	    <!--<pid>50.0 0.1 0.0</pid>-->
 	    <!--<pid>10.0 0.0 0.5</pid>-->
             <pid>100.0 0.0 0.7</pid>
          </controller>
          <controller joint_name="kfe_joint">
-            <!--<type>position</type>-->
-	    <type>velocity</type>
+            <type>position</type>
+	    <!--<type>velocity</type>-->
 	    <!--<pid>50.0 0.1 0.0</pid>-->
 	    <!--<pid>10.0 0.0 0.5</pid>-->
             <pid>100.0 0.0 0.7</pid>
